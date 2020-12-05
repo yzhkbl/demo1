@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.backstage.Dao.ExamineDao" >
+
+    <select id="findByBorrower" resultType="com.backstage.Dao.Entity.Borrower">
+        select id,user_name,id_card,bank_card_no,phone_number,issue_authority,start_date,end_date,family_address,obverse_id,obverse_code,obverse_address,
+        obverse_name,back_id,back_code,back_address,back_name,power_id,power_code,power_address,power_name,credit_power,identity_id,order_state
+        from borrower
+        where identity_id=#{identityId} and order_state=true
+    </select>
+    <select id="findByRelation" resultType="com.backstage.Dao.Entity.Relation">
+        select id,user_name,id_card,bank_card_no,phone_number,issue_authority,start_date,end_date,family_address,company,company_address,year_income,obverse_id,
+        obverse_code,obverse_address,obverse_name,back_id,back_code,back_address,back_name,power_id,power_code,power_address,power_name,credit_power,people_ship,identity_id,business_role,order_state
+        from relation
+        where identity_id=#{identityId} and order_state=true
+    </select>
+    <select id="findByGuarantee" resultType="com.backstage.Dao.Entity.Guarantee">
+        select id,user_name,id_card,bank_card_no,phone_number,issue_authority,start_date,end_date,family_address,company,company_address,year_income,obverse_id,
+        obverse_code,obverse_address,obverse_name,back_id,back_code,back_address,back_name,power_id,power_code,power_address,power_name,credit_power,people_ship,identity_id,order_state
+        from guarantee
+        where identity_id=#{identityId} and order_state=true
+    </select>
+    <select id="findByBusiness" resultType="com.backstage.Dao.Entity.Business">
+        select id,team,car_information,intention_price,loan_money,repay_period,car_type,identity_id,order_state
+        from business
+        where identity_id=#{identityId} and order_state=true
+    </select>
+
+</mapper>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.backstage.Dao.UserDao" >
+    <select id="find" resultType="com.backstage.Dao.Entity.User">
+        select id,user_phone,pwd,user_name,identity_id,user_role,user_status,user_type,wechat,mail
+        from user_login
+        where user_phone = #{userPhone} and pwd = #{pwd}
+    </select>
+    <insert id="insertRole" parameterType="com.backstage.Dao.Entity.UserRole">
+        insert into user_role
+        (id,user_role)
+        values
+        (#{id},#{userRole})
+    </insert>
+    <insert id="insertUser" parameterType="com.backstage.Dao.Entity.User">
+        insert into user_login
+        (id,user_phone,pwd,user_name,identity_id,user_role,user_status,user_type,wechat,mail)
+        values
+        (#{id},#{userPhone},#{pwd},#{userName},#{identityId},#{userRole},#{userStatus},#{userType},#{wechat},#{mail})
+    </insert>
+    <delete id="deleteRole">
+        delete from user_role
+        where id = #{id}
+    </delete>
+    <delete id="deleteUser">
+        delete from user_login
+        where id = #{id}
+    </delete>
+    <select id="findByRole" resultType="com.backstage.Dao.Entity.UserRole">
+        select id,user_role
+        from user_role
+    </select>
+    <select id="findByUser" resultType="com.backstage.Dao.Entity.User">
+        select id,user_phone,pwd,user_name,identity_id,user_role,user_status,user_type,wechat,mail
+        from user_login
+    </select>
+    <insert id="insertRoleGrade" parameterType="com.backstage.Dao.Entity.RoleGrade">
+        insert into role_grade
+        (role_id,approval,allow,credit_extension,before_loan,after_loan,user_management)
+        values
+        (#{roleId},#{approval},#{allow},#{creditExtension},#{beforeLoan},#{afterLoan},#{userManagement})
+    </insert>
+    <insert id="insertUserGrade" parameterType="com.backstage.Dao.Entity.UserGrade">
+        insert into user_grade
+        (user_id,approval,allow,credit_extension,before_loan,after_loan,user_management)
+        values
+        (#{userId},#{approval},#{allow},#{creditExtension},#{beforeLoan},#{afterLoan},#{userManagement})
+    </insert>
+    <update id="updateRoleGrade">
+        update role_grade
+        set
+        approval=#{approval},
+        allow=#{allow},
+        credit_extension=#{creditExtension},
+        before_loan=#{beforeLoan},
+        after_loan=#{afterLoan},
+        user_management=#{userManagement}
+        where role_id=#{roleId}
+    </update>
+    <update id="updateUserGrade">
+        update user_grade
+        set
+        approval=#{approval},
+        allow=#{allow},
+        credit_extension=#{creditExtension},
+        before_loan=#{beforeLoan},
+        after_loan=#{afterLoan},
+        user_management=#{userManagement}
+        where user_id=#{userId}
+    </update>
+    <select id="findRoleGrade" resultType="com.backstage.Dao.Entity.RoleGrade">
+        select role_id,approval,allow,credit_extension,before_loan,after_loan,user_management
+        from role_grade
+        where role_id=#{roleId}
+    </select>
+    <select id="findUserGrade" resultType="com.backstage.Dao.Entity.UserGrade">
+        select user_id,approval,allow,credit_extension,before_loan,after_loan,user_management
+        from user_grade
+        where user_id = #{userId}
+    </select>
+    <update id="updateUserStatus">
+        update user_login
+        set
+        user_status=#{userStatus}
+        where id = #{id}
+    </update>
+    <select id="findRole" resultType="com.backstage.Dao.Entity.UserRole">
+        select id,user_role
+        from user_role
+        where user_role=#{userRole}
+    </select>
+    <delete id="deleteRoleGrade">
+        delete from role_grade
+        where role_id=#{roleId}
+    </delete>
+    <delete id="deleteUserGrade">
+        delete from user_grade
+        where user_id=#{userId}
+    </delete>
+</mapper>
