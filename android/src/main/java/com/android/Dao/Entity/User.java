@@ -8,16 +8,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    /**id*/
     private Integer id;
-    /**用户账号（手机号）*/
-    private String userPhone;
-    /**密码*/
-    private Integer pwd;
-    /**权限等级（数字小为高等级）*/
-    private String grade;
-    /**用户昵称（姓名）*/
+
     private String userName;
-    /**唯一身份识别码*/
-    private Integer identityId;
+
+    private String pwd;
+
+    private String userPhone;
+    //身份识别码
+    private String identityId;
+    //角色部门
+    private String userRole;
+    //当前状态是否启用
+    private Boolean userStatus;
+    //登录类型
+    private Integer userType;
+    //微信
+    private String wechat;
+    //邮箱
+    private String mail;
 }

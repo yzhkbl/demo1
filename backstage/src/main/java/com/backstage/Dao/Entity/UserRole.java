@@ -8,4 +8,5 @@ public class UserRole {
 
     private String userRole;//角色部门
 
+    private Integer totalStaff;
 }

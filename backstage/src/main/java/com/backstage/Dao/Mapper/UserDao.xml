@@ -27,8 +27,12 @@
         where id = #{id}
     </delete>
     <select id="findByRole" resultType="com.backstage.Dao.Entity.UserRole">
-        select id,user_role
-        from user_role
+        select
+        r.id,r.user_role,count(u.id) as totalStaff
+        from user_role as r
+        inner join user_login as u on u.user_role = r.user_role
+        where u.user_role in (select r.user_role from user_role)
+        group by r.user_role
     </select>
     <select id="findByUser" resultType="com.backstage.Dao.Entity.User">
         select id,user_phone,pwd,user_name,identity_id,user_role,user_status,user_type,wechat,mail

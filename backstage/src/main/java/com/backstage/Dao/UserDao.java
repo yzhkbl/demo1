@@ -17,6 +17,9 @@ public interface UserDao {
     int deleteUser(Integer id);//删除用户
     List<UserRole> findByRole();//角色列表
     List<User> findByUser();//用户列表
+
+    //UserRole findUserRole(String userRole);
+
     int insertRoleGrade(RoleGrade q);//角色权限新增
     int insertUserGrade(UserGrade q);
     int updateRoleGrade(RoleGrade q);
