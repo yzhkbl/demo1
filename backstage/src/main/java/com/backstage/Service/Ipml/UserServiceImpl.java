@@ -5,8 +5,11 @@ import com.backstage.Dao.Entity.User;
 import com.backstage.Dao.Entity.UserGrade;
 import com.backstage.Dao.Entity.UserRole;
 import com.backstage.Dao.UserDao;
+import com.backstage.Dto.PageDto;
 import com.backstage.Helper.BizException;
 import com.backstage.Service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageSerializable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,9 +78,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findByUser() {
+    public PageSerializable findByUser() {
+        PageHelper.startPage(1,10);
         List<User>list = userDao.findByUser();
-        return list;
+        return new PageSerializable(list);
     }
 
     @Override

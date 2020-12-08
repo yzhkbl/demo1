@@ -1,9 +1,6 @@
 package com.backstage.Dao;
 
-import com.backstage.Dao.Entity.RoleGrade;
-import com.backstage.Dao.Entity.User;
-import com.backstage.Dao.Entity.UserGrade;
-import com.backstage.Dao.Entity.UserRole;
+import com.backstage.Dao.Entity.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

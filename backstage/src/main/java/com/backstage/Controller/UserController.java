@@ -6,6 +6,7 @@ import com.backstage.Dao.Entity.UserGrade;
 import com.backstage.Dao.Entity.UserRole;
 import com.backstage.Helper.ResponseDto;
 import com.backstage.Service.UserService;
+import com.github.pagehelper.PageSerializable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,7 +59,7 @@ public class UserController {
 
     @RequestMapping("/find/userLog")
     public ResponseDto findUser(){
-        List<User>list = userService.findByUser();
+        PageSerializable list = userService.findByUser();
         return ResponseDto.success(list);
     }
 
