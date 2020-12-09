@@ -4,7 +4,7 @@ import com.backstage.Dao.Entity.RoleGrade;
 import com.backstage.Dao.Entity.User;
 import com.backstage.Dao.Entity.UserGrade;
 import com.backstage.Dao.Entity.UserRole;
-import com.github.pagehelper.PageSerializable;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface UserService {
     int addUser(User q);
     int deleteRole(Integer id);
     int deleteUser(Integer id);
-    PageSerializable findByUser();
+    PageInfo<User> findByUser(Integer page,Integer pageSize);
     List<UserRole> findByRole();
 
     int insertRoleGrade(RoleGrade q);

@@ -9,7 +9,7 @@ import com.backstage.Dto.PageDto;
 import com.backstage.Helper.BizException;
 import com.backstage.Service.UserService;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageSerializable;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,10 +78,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageSerializable findByUser() {
-        PageHelper.startPage(1,10);
+    public PageInfo<User> findByUser(Integer page,Integer pageSize) {
+        PageHelper.startPage(page,pageSize);
         List<User>list = userDao.findByUser();
-        return new PageSerializable(list);
+        PageInfo<User> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 
     @Override
