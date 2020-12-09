@@ -108,6 +108,6 @@
     <select id="likeUser" resultType="com.backstage.Dao.Entity.User">
         select id,user_phone,pwd,user_name,identity_id,user_role,user_status,user_type,wechat,mail
         from user_login
-        where user_name like '%${user_name}%'
+        where user_name like '%${userName}%'
     </select>
 </mapper>

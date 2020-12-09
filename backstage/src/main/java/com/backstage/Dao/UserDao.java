@@ -15,8 +15,8 @@ public interface UserDao {
     List<UserRole> findByRole();//角色列表
     List<User> findByUser();//用户列表
 
-    List<User>likeUser();
-    List<User>findRoleName();
+    List<User>likeUser(String userName);
+    List<User>findRoleName(String userRole);
     //UserRole findUserRole(String userRole);
 
     int insertRoleGrade(RoleGrade q);//角色权限新增

@@ -92,6 +92,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> likeUser(String userName) {
+        List<User>list = userDao.likeUser(userName);
+        return list;
+    }
+
+    @Override
+    public List<User> findRoleName(String userRole) {
+        List<User>list = userDao.findRoleName(userRole);
+        return list;
+    }
+
+    @Override
     public int insertRoleGrade(RoleGrade q) {
         int count = userDao.insertRoleGrade(q);
         return count;

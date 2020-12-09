@@ -18,6 +18,9 @@ public interface UserService {
     PageInfo<User> findByUser(Integer page,Integer pageSize);
     List<UserRole> findByRole();
 
+    List<User>likeUser(String userName);
+    List<User>findRoleName(String userRole);
+
     int insertRoleGrade(RoleGrade q);
     int insertUserGrade(UserGrade q);
     int updateRoleGrade(RoleGrade q);

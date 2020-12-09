@@ -105,4 +105,16 @@ public class UserController {
         int count = userService.updateUserStatus(id,userStatus);
         return ResponseDto.success(count);
     }
+
+    @RequestMapping("/like")
+    public ResponseDto likeUserName(String userName){
+        List<User>list = userService.likeUser(userName);
+        return ResponseDto.success(list);
+    }
+
+    @RequestMapping("/find/roleName")
+    public ResponseDto findRoleName(String userRole){
+        List<User>list = userService.findRoleName(userRole);
+        return ResponseDto.success(list);
+    }
 }
